@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AxomWheels</title>
+<link rel="stylesheet"
+href="style.css">
+</head>
+
+<body><nav class="navbar">
+    
+    <!-- Logo -->
+    <div class="logo">
+        <img src="images/logo.png" alt="AxomWheels Logo">
+    </div>
+
+    <!-- Hamburger Icon -->
+    <div class="menu-toggle" id="menu-toggle">
+        ☰
+    </div>
+
+    <!-- Menu Links -->
+    <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#cars">Cars</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+</nav>
+<section id="home" class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+        <h1>Explore Northeast With Comfort</h1>
+        <p>Premium Car Rental Service</p>
+        <p>জয় জুবিন দা</p>
+
+        <div class="hero-buttons">
+            <a href="#cars" class="btn-primary">Book Now</a>
+            <a href="#contact" class="btn-secondary">Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- booking section -->
+<section class="booking-section">
+    <h2 class="section-title">Book Your Ride</h2>
+
+    <div class="booking-box">
+        <select id="car">
+            <option value="">Select Car</option>
+            <option value="Innova Crysta">Innova Crysta</option>
+            <option value="Scorpio S11">Scorpio S11</option>
+            <option value="Dzire">Dzire</option>
+            <option value="Alto">Alto</option>
+        </select>
+
+        <input type="text" id="Destination" placeholder="Your Destination">
+        <input type="text" id="pickup" placeholder="Pickup Location">
+        
+        <select id="duration" required>
+            <option value="">Select Trip Duration</option>
+            <option value="1 Day Trip">1 Day Trip</option>
+            <option value="1 Day 1 Night">1 Day 1 Night</option>
+            <option value="2 Days 1 Night">2 Days 1 Night</option>
+            <option value="3 Days 2 Nights">3 Days 2 Nights</option>
+            <option value="4 Days 3 Nights">4 Days 3 Nights</option>
+        </select>
+
+        <input type="date" id="pickupDate">
+        <input type="time" id="pickupTime">
+
+        <input type="number" id="people" placeholder="Number of People">
+
+        <button onclick="sendWhatsApp()" class="btn whatsapp">
+            Book on WhatsApp
+        </button>
+    </div>
+</section>
+
+<!-- CARS -->
+ <section id="cars" class="cars-section">
+    <h2 class="section-title">Our Cars</h2>
+
+    <div class="car-container">
+
+        <!-- Innova -->
+        <div class="car-box">
+            <img src="images/innova.jpg" alt="Innova">
+            <h3>Innova Crysta</h3>
+            <div class="car-contact-buttons">
+                <div class="dropdown">
+                    <button class="btn">Call Us</button>
+                    <div class="dropdown-content">
+                        <a href="tel:+919957382970">+91 9957382970</a>
+                        <a href="tel:+919101627980">+91 9101627980</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn whatsapp">WhatsApp</button>
+                    <div class="dropdown-content">
+                        <a href="https://wa.me/919957382970" target="_blank">+91 9957382970</a>
+                        <a href="https://wa.me/919101627980" target="_blank">+91 9101627980</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scorpio -->
+        <div class="car-box">
+            <img src="images/scorpio.jpg" alt="Scorpio">
+            <h3>Scorpio S11</h3>
+            <div class="car-contact-buttons">
+                <div class="dropdown">
+                    <button class="btn">Call Us</button>
+                    <div class="dropdown-content">
+                         <a href="tel:+919957382970">+91 9957382970</a>
+                         <a href="tel:+919101627980">+91 9101627980</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn whatsapp">WhatsApp</button>
+                    <div class="dropdown-content">
+                        <a href="https://wa.me/919957382970" target="_blank">+91 9957382970</a>
+                        <a href="https://wa.me/919101627980" target="_blank">+91 9101627980</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dzire -->
+        <div class="car-box">
+            <img src="images/dzire.webp" alt="Dzire">
+            <h3>Dzire</h3>
+            <div class="car-contact-buttons">
+                <div class="dropdown">
+                    <button class="btn">Call Us</button>
+                    <div class="dropdown-content">
+                         <a href="tel:+919957382970">+91 9957382970</a>
+                         <a href="tel:+919101627980">+91 9101627980</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn whatsapp">WhatsApp</button>
+                    <div class="dropdown-content">
+                        <a href="https://wa.me/919957382970" target="_blank">+91 9957382970</a>
+                        <a href="https://wa.me/919101627980" target="_blank">+91 9101627980</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alto -->
+        <div class="car-box">
+            <img src="images/alto.png" alt="Alto">
+            <h3>Alto</h3>
+            <div class="car-contact-buttons">
+                <div class="dropdown">
+                    <button class="btn">Call Us</button>
+                    <div class="dropdown-content">
+                         <a href="tel:+919957382970">+91 9957382970</a>
+                         <a href="tel:+919101627980">+91 9101627980</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn whatsapp">WhatsApp</button>
+                    <div class="dropdown-content">
+                        <a href="https://wa.me/919957382970" target="_blank">+91 9957382970</a>
+                        <a href="https://wa.me/919101627980" target="_blank">+91 9101627980</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section id="destinations" class="destinations">
+     <h2 class="section-title">Popular Destinations</h2>
+</section>
+
+    <div class="destination-box">
+        <img src="images/darjeeling.jpg">
+        <h3>Darjeeling (West Bengal)</h3>
+    </div>
+
+    <div class="destination-box">
+        <img src="images/dawki.jpg">
+        <h3>Dawki (Meghalaya)</h3>
+    </div>
+
+    <div class="destination-box">
+        <img src="images/tawang.jpg">
+        <h3>Tawang (Arunachal)</h3>
+    </div>
+
+    <div class="destination-box">
+        <img src="images/sivasagar.webp">
+        <h3>Sivasagar (Assam)</h3>
+    </div>
+
+    <div class="destination-box">
+        <img src="images/Cherrapunji.jpg">
+        <h3>Cherrapunji (Meghalaya)</h3>
+    </div>
+
+      <div class="destination-box">
+        <img src="images/ziro.jpg">
+        <h3>Ziro Vally (Arunachal)</h3>
+    </div>
+
+      <div class="destination-box">
+        <img src="images/dzukou.jpg">
+        <h3>Dzukou Vally (Nagaland)</h3>
+    </div>
+
+     <div class="destination-box">
+        <img src="images/kaziranga.jpg">
+        <h3>Kaziranga (Assam)</h3>
+    </div>
+
+     <div class="destination-box">
+        <img src="images/aizawl.jpg">
+        <h3>Aizawl (Mizoram)</h3>
+    </div>
+
+      <div class="destination-box">
+        <img src="images/Krang.jpg">
+        <h3>Krang-Suri Waterfall (Meghalaya)</h3>
+    </div>
+
+</section>
+
+<!-- ABOUT US -->
+<section id="about" class="about-section">
+    <div class="about-container">
+        <h2>About AxomWheels</h2>
+        <p>
+            AxomWheels is more than just a car rental service — it is your trusted travel companion in the heart of Northeast India. 
+            We believe that every journey should be comfortable, safe, and unforgettable. From the misty hills of Shillong to the peaceful valleys of Ziro, 
+            we help travelers explore the beauty of the Northeast with complete freedom.
+        </p>
+
+        <p>
+            Our mission is simple: to provide reliable vehicles, transparent pricing, and professional drivers who understand the local routes and culture. 
+            Whether you are planning a family trip, a romantic getaway, or an adventure with friends, AxomWheels ensures a smooth ride every time.
+        </p>
+
+        <p>
+            With affordable pricing and easy WhatsApp booking, we make travel planning simple and stress-free. 
+            At AxomWheels, your comfort is our priority, and your destination is our responsibility.
+        </p>
+
+        <h3>Why Choose Us?</h3>
+        <ul>
+            <li>✔ Clean & well-maintained vehicles</li>
+            <li>✔ Experienced local drivers</li>
+            <li>✔ 24/7 Customer Support</li>
+            <li>✔ Trusted by happy travelers</li>
+        </ul>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-buttons">
+
+        <!-- Call Us Button -->
+        <div class="dropdown">
+            <button class="btn">Call Us</button>
+            <div class="dropdown-content">
+                <a href="tel:+919957382970">+91 9957382970</a>
+                <a href="tel:+919101627980">+91 9101627980</a>
+            </div>
+        </div>
+
+        <!-- WhatsApp Button -->
+        <div class="dropdown">
+            <button class="btn whatsapp">WhatsApp</button>
+            <div class="dropdown-content">
+                <a href="https://wa.me/919957382970" target="_blank">+91 9957382970</a>
+                <a href="https://wa.me/919101627980" target="_blank">+91 9101627980</a>
+            </div>
+        </div>
+        
+                <a href="mailto:axomwheelsofficial@gmail.com" class="btn email">
+     Email
+</a>
+</div>
+
+<footer>
+© 2026 AxomWheels | All Rights Reserved
+</footer>
+
+<!--Link js -->
+<script src="script.js"></script>
+
+</body>
+</html>

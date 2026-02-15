@@ -1,0 +1,383 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f2f9f9;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:linear-gradient(to right,#0f4c75,#1b9c85);
+    position:relative;
+    z-index:1000;
+}
+
+.logo img{
+    height:60px;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* MOBILE NAV */
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+        cursor:pointer;
+        font-size:24px;
+        color: #ffffff;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        right: 0;
+        width: 150px;;
+        background:#ffffff;
+        text-align:center;
+        padding:15px;
+        box-shadow: #000 5px 15px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        z-index:1001;
+    }
+
+    .nav-links a{
+        color: #000 !important;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .nav-links li{
+        margin:5px 0;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display: block;
+        cursor: pointer;
+        font-size: 25px;
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:45vh;
+    background:url("images/mountain.jpg") no-repeat center center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:45px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.hero-buttons{
+    margin-top:20px;
+}
+
+.btn-primary,
+.btn-secondary{
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:25px;
+    margin:5px;
+    display:inline-block;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:#1b9c85;
+    color:white;
+}
+
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+}
+
+/* Booking section */
+.booking-section {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.booking-box {
+    max-width: 500px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.booking-box input,
+.booking-box select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.booking-box button {
+    width: 100%;
+}
+
+/* ================= SECTION TITLE ================= */
+
+.section-title{
+    font-size:30px;
+    margin-bottom:20px;
+    text-align:center;
+    color:#0f4c75;
+}
+
+/* ================= CARS ================= */
+
+.cars-section{
+    padding:50px 20px;
+    background:#f4f4f4;
+}
+
+.car-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.car-box{
+    background:white;
+    width:260px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.car-box img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.car-contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.btn{
+    padding:8px 14px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    color:white;
+    font-size:14px;
+}
+
+.btn{
+    background:#1b9c85;
+}
+
+.btn.whatsapp{
+    background:#25D366;
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+    position:relative;
+    display:inline-block;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:160px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    border-radius:5px;
+    z-index:10;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+
+.dropdown-content a:hover{
+    background:#f1f1f1;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* ================= DESTINATIONS ================= */
+
+.destinations{
+    padding:50px 20px;
+    text-align: center;
+}
+
+/* Laptop layout */
+.destination-box{
+    width:260px;
+    display:inline-block;
+    margin:15px auto;
+    text-align:center;
+    vertical-align: top;
+}
+
+/* same image size */
+.destination-box img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width:768px){
+    .destinations{
+        text-align: center;
+    }
+    .destination-box{
+        display: block;
+        width: 250px;
+        margin: 20px auto;
+    }
+    .destination-box img{
+        width: 250px;
+        height: 180px; /* same height sabka */
+        object-fit: cover; /* image crop karega but stretch nahi karega */
+        border-radius: 8px;
+    }
+
+}
+
+/* ================= ABOUT ================= */
+
+.about-section{
+    background:linear-gradient(to right,#0f2027,#2c5364);
+    color:white;
+    padding:65px 30px;
+    text-align:center;
+}
+
+.about-section h2{
+    margin-bottom:25px;
+}
+
+.about-section ul{
+    list-style:none;
+    margin-top:25px;
+}
+
+.about-section li{
+    margin:10px 0;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-section{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.btn.email{
+    background:black;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#0f4c75;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width:768px){
+    .hero{
+        height: 25vh;
+    }
+
+    .hero h1{
+        font-size: 22px;
+    }
+
+    .hero p{
+        font-size: 12px;
+    }
+}
