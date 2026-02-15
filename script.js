@@ -64,5 +64,5 @@ Kindly confirm availability and price.`;
     let url = `https://wa.me/${919957382970}?text=${encodeURIComponent(message)}`;
 
     window.location.href = url;
-
 }
+
