@@ -33,37 +33,32 @@ menuToggle.onclick = function() {
 function sendWhatsApp() {
 
     let car = document.getElementById("car").value;
-    let Destination = document.getElementById("Destination").value;
-    let Pickup = document.getElementById("Pickup").value;
-    let TripDuration = document.getElementById("Trip Duration")
+    let destination = document.getElementById("Destination").value;
+    let pickup = document.getElementById("pickup").value;
+    let duration = document.getElementById("duration").value;
     let pickupDate = document.getElementById("pickupDate").value;
     let pickupTime = document.getElementById("pickupTime").value;
     let people = document.getElementById("people").value;
 
-    if(car === "" || pickup === "" || destination === "") {
+    if (car === "" || pickup === "" || destination === "") {
         alert("Please fill all required details");
         return;
     }
 
-    let message = `🙏Thanks for contacting AXOMWHEELS 🚗
-
-Destination: ${Destination}
-Pickup Date: ${pickupDate}
-Time: ${pickupTime}
-
-Pickup Location: ${pickup}
-
-Number of People: ${people}
-
-Car Selected: ${car}
-
-Kindly confirm availability and price.`;
+    let message =
+        "🙏 Thanks for contacting AXOMWHEELS 🚗\n\n" +
+        "Destination: " + destination + "\n" +
+        "Pickup Location: " + pickup + "\n" +
+        "Trip Duration: " + duration + "\n" +
+        "Pickup Date: " + pickupDate + "\n" +
+        "Time: " + pickupTime + "\n" +
+        "Number of People: " + people + "\n\n" +
+        "Car Selected: " + car + "\n\n" +
+        "Kindly confirm availability and price.";
 
     let phoneNumber = "919957382970";
 
-    let url = `https://wa.me/${919957382970}?text=${encodeURIComponent(message)}`;
+    let url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
 
     window.location.href = url;
 }
-
-
