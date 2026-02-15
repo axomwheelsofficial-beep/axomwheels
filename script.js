@@ -66,3 +66,4 @@ Kindly confirm availability and price.`;
     window.location.href = url;
 }
 
+
