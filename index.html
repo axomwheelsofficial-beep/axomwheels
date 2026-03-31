@@ -48,11 +48,22 @@ href="style.css">
 </section>
 
 <!-- booking section -->
-<section id="booking-section" class="booking-section">
-    <h2 class="section-title">Book Your Trip</h2>
+<section class="booking-section">
+<h2>Book Your Trip</h2>
 
-    <div class="booking-box">
-        <select id="car">
+<select id="tripType" onchange="showForm()">
+<option value="">Select Trip Type</option>
+<option value="single">Single Trip</option>
+<option value="round">Round Trip</option>
+</select>
+
+
+<!-- SINGLE TRIP FORM -->
+
+<div id="singleTripForm" class="trip-form" style="display: none;">
+
+<div class="booking-box">
+        <select id="carSingle">
             <option value="">Select Car</option>
             <option value="Innova Crysta">Innova Crysta</option>
             <option value="Scorpio S11">Scorpio S11</option>
@@ -62,10 +73,37 @@ href="style.css">
             <option value="Alto">Alto</option>
         </select>
 
-        <input type="text" id="destination" placeholder="Your Destination">
-        <input type="text" id="pickup" placeholder="Pickup Location">
-        
-        <select id="duration" required>
+        <input type="text" id="pickupSingle" placeholder="Pickup Location">
+        <input type="text" id="drop" placeholder="Drop Location">
+        <input type="date" id="dateSingle">
+        <input type="time" id="timeSingle">
+        <input type="number" id="peopleSingle" placeholder="Number of People">
+
+        <button onclick="sendWhatsApp(919957382970)" class="btn whatsapp">
+            Book on WhatsApp
+        </button>
+    </div>
+</div>
+
+<!-- ROUND TRIP FORM -->
+
+<div id="roundTripForm" class="trip-form" style="display: none;">
+<div class="booking-box">
+        <select id="carRound">
+            <option value="">Select Car</option>
+            <option value="Innova Crysta">Innova Crysta</option>
+            <option value="Scorpio S11">Scorpio S11</option>
+            <option value="Scorpio N">Scorpio N</option>
+            <option value="Dzire">Dzire</option>
+            <option value="Fronx">Fronx</option>
+            <option value="Alto">Alto</option>
+        </select>
+
+<input type="text" id="destination" placeholder="Your Destination">
+
+<input type="text" id="pickupRound" placeholder="Pickup Location">
+
+<select id="duration" required>
             <option value="">Select Trip Duration</option>
             <option value="1 Day Trip">1 Day Trip</option>
             <option value="1 Day 1 Night">1 Day 1 Night</option>
@@ -74,16 +112,16 @@ href="style.css">
             <option value="4 Days 3 Nights">4 Days 3 Nights</option>
         </select>
 
-        <input type="date" id="pickupDate">
-        <input type="time" id="pickupTime">
+        <input type="date" id="dateRound">
+        <input type="time" id="timeRound">
 
-        <input type="number" id="people" placeholder="Number of People">
+        <input type="number" id="peopleRound" placeholder="Number of People">
 
-        <button onclick="sendWhatsApp()" class="btn whatsapp">
+        <button onclick="sendWhatsApp(919957382970)" class="btn whatsapp">
             Book on WhatsApp
         </button>
     </div>
-</section>
+</div>
 
 <!-- CARS -->
  <section id="cars" class="cars-section">
