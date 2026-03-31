@@ -168,47 +168,58 @@ font-weight:bold;
 text-decoration:none;
 }
 
-/* Booking section */
+/* ================= BOOKING SECTION ================= */
 .booking-section {
-    padding: 50px 20px;
-    text-align: center;
-    background: #f4f4f4;
-}
-
-.booking-box {
     max-width: 500px;
     margin: auto;
-    background: white;
     padding: 25px;
+    background: white;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.booking-box input,
-.booking-box select {
+.booking-section h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-section select,
+.booking-section input {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
 }
 
-.booking-box button {
+.trip-form{
+    display: none;
+}
+
+.booking-section button {
     width: 100%;
+    padding: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor:pointer;
+    margin-top: 10px;
 }
 
-/* ================= SECTION TITLE ================= */
-
-.section-title{
-    font-size:30px;
-    margin-bottom:20px;
-    text-align:center;
-    color:#0f4c75;
+.booking-section :hover{
+    background: #ffffff;
 }
+
+
 
 /* ================= CARS ================= */
 
 .cars-section{
     padding:50px 20px;
     background:#f4f4f4;
+    text-align: center;
 }
 
 .car-container{
