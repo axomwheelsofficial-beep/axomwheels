@@ -1,220 +1,646 @@
-/* RESET */
+/* =========================
+   RESET
+========================= */
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 body{
-    background:#f2f9f9;
+background:#f5f8fb;
+color:#222;
+line-height:1.6;
+overflow-x:hidden;
 }
 
-/* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 20px;
-    background:linear-gradient(to right,#0f4c75,#1b9c85);
-    position:relative;
-    z-index:1000;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:linear-gradient(to right,#0f4c75,#1b9c85);
+box-shadow:0 2px 15px rgba(0,0,0,0.08);
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .logo img{
-    height:55px;
+height:55px;
 }
+
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero{
-height:70vh;
-background:url('images/am1.jpg') center/cover no-repeat;
+height:83vh;
+background:url("images/back.jpg") center center/cover no-repeat;
+position:relative;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.55);
+
 display:flex;
-align-items:center;
+flex-direction:column;
 justify-content:center;
+align-items:center;
 text-align:center;
+
+padding:20px;
 color:white;
-position: relative;
 }
 
-.hero h1{
-font-size:42px;
-margin-bottom:10px;
+.hero-overlay h1{
+font-size:3rem;
+max-width:900px;
+margin-bottom:20px;
 }
 
-.hero p{
-font-size:20px;
+.hero-overlay p{
+font-size:1.2rem;
+max-width:700px;
+margin-bottom:30px;
 }
 
-.contact-btn{
-display:inline-block;
-padding:10px 20px;
-border-radius:25px;
-text-decoration:none;
-font-size:25px;
-margin-top:20px;
-border: 2px solid rgb(0, 0, 0);
-color: rgb(0, 0, 0);
-}
-
-/* ================= SECTION TITLE ================= */
-
-.section-title{
-    font-size:30px;
-    margin-bottom:20px;
-    text-align:center;
-    color:#0f4c75;
-}
-
-/* contact-section */
-
-.cars-section{
-    padding:50px 20px;
-    background:#f4f4f4;
-}
-
-.car-container{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    justify-content:center;
-}
-
-.car-box{
-    background:white;
-    width:280px;
-    padding:20px;
-    border-radius:8px;
-    text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.car-box img{
-    width:100%;
-    height:190px;
-    object-fit:cover;
-    border-radius:2px;
-    margin-bottom:10px;
-}
-
-/* ===== WHY CHOOSE US ===== */
-
-#why-choose-us{
-    padding: 50px 20px;
-    text-align: center;
-    font-size:20px;
-    color:#0f4c75;
-}
-
-.section-title2{
-    margin-bottom: 40px;
-}
-
-/* Main container */
-.features-container{
-    display: flex;
-    justify-content: center;   /* pura group center */
-    align-items: center;
-    gap: 25px;
-    flex-wrap: nowrap;         /* ek hi row */
-}
-
-/* Each box */
-.feature{
-    width: 240px;
-    text-align: center;
-}
-
-/* Image size same */
-.feature img{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* Mobile */
-@media (max-width:768px){
-    .features-container{
-        flex-direction: column;
-    }
-}
-
-/* ===== CONTACT SECTION ===== */
-
-.contact-section{
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.contact-section h2{
-    margin-bottom: 25px;
-}
-
-.contact-buttons{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: nowrap;
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 .btn{
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-align: center;
-    width: 130px;
-    font-weight: 600;
-    text-decoration: none;
-}
-.contact-buttons{
-    white-space: nowrap;
+padding:15px 30px;
+border-radius:50px;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
 }
 
-/* Colors */
-.btn.call{
-    background: #ff0000;
-    color: white;
+.call-btn{
+background:#ff3b30;
+color:white;
 }
 
-.btn.whatsapp{
-    background: #25D366;
-    color: white;
+.whatsapp-btn{
+background:#25D366;
+color:white;
 }
 
-.btn.email{
-    background: #007BFF;
-    color: white;
+.btn:hover{
+transform:translateY(-4px);
 }
 
-/* Mobile */
-@media (max-width: 768px){
-    .contact-buttons{
-        flex-direction: column;
-        align-items: center;
-    }
+/* =========================
+   COMMON SECTION
+========================= */
+
+section{
+padding:80px 8%;
 }
 
-/* ================= FOOTER ================= */
+h2{
+text-align:center;
+font-size:2.4rem;
+margin-bottom:50px;
+color:#0f172a;
+}
 
-footer{
+/* =========================
+   WHY CHOOSE US
+========================= */
+
+.features-grid{
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.feature-card{
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.feature-card:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:45px;
+margin-bottom:15px;
+}
+
+.feature-card h3{
+margin-bottom:10px;
+}
+
+/* =========================
+   OUR AMBULANCE
+========================= */
+
+.fleet-row{
+max-width:1200px;
+margin:60px auto;
+
+display:flex;
+align-items:center;
+gap:50px;
+}
+
+.reverse{
+flex-direction:row-reverse;
+}
+
+.fleet-text{
+flex:1;
+}
+
+.fleet-text h3{
+font-size:2rem;
+margin-bottom:15px;
+color:#0f172a;
+}
+
+.fleet-text p{
+margin-bottom:15px;
+}
+
+.fleet-text ul{
+padding-left:20px;
+}
+
+.fleet-text li{
+margin-bottom:10px;
+}
+
+.fleet-image{
+flex:1;
+}
+
+.fleet-image img{
+width:100%;
+height:380px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* =========================
+   BOOKING FORM
+========================= */
+
+.booking-box{
+max-width:750px;
+margin:auto;
+
+background:white;
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.booking-box input,
+.booking-box select{
+width:100%;
+padding:15px;
+margin:12px 0;
+
+border:1px solid #ddd;
+border-radius:12px;
+
+font-size:16px;
+outline:none;
+}
+
+.booking-box input:focus,
+.booking-box select:focus{
+border-color:#25D366;
+}
+
+.book-btn{
+width:100%;
+padding:16px;
+
+border:none;
+border-radius:50px;
+
+background:#25D366;
+color:white;
+
+font-size:18px;
+font-weight:600;
+
+cursor:pointer;
+margin-top:10px;
+}
+
+.book-btn:hover{
+opacity:.9;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.review-grid{
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.review-card{
+background:white;
+padding:30px;
+text-align:center;
+
+border-radius:20px;
+
+box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+max-width:900px;
+margin:auto;
+}
+
+.faq-item{
+margin-bottom:15px;
+}
+
+.faq-question{
+width:100%;
+padding:18px;
+
+background:white;
+border:none;
+
+text-align:left;
+
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
+
+border-radius:12px;
+
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+.faq-answer{
+display:none;
+
+background:white;
+padding:18px;
+
+margin-top:6px;
+
+border-radius:12px;
+}
+
+/* =========================
+   EMERGENCY BANNER
+========================= */
+
+.emergency-banner{
+background:#ff3b30;
+color:white;
+text-align:center;
+}
+
+.emergency-banner h2{
+color:white;
+margin-bottom:15px;
+}
+
+.emergency-banner p{
+margin-bottom:30px;
+}
+
+.emergency-call{
+display:inline-block;
+
+padding:15px 30px;
+
+background:white;
+color:#ff3b30;
+
+border-radius:50px;
+
+font-weight:700;
+text-decoration:none;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+background:#0f4c75;
+color:white;
+
+text-align:center;
+
+padding:50px 20px;
+}
+
+.footer h3{
+margin-bottom:15px;
+}
+
+.footer p{
+margin-bottom:10px;
+}
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
+
+.floating-call,
+.floating-whatsapp{
+position:fixed;
+right:20px;
+
+width:60px;
+height:60px;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+text-decoration:none;
+color:white;
+
+z-index:999;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.floating-call{
+bottom:95px;
+background:#ff3b30;
+}
+
+.floating-whatsapp{
+bottom:20px;
+background:#25D366;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.feature-card,
+.fleet-card,
+.review-card{
+    transition:0.3s ease;
+}
+
+.feature-card:hover,
+.fleet-card:hover,
+.review-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+section{
+padding:60px 20px;
+}
+
+.navbar{
+padding:15px;
+}
+
+.logo img{
+height:50px;
+}
+
+.nav-call{
+padding:10px 15px;
+font-size:10px;
+}
+
+.hero{
+height:40vh;
+}
+
+.hero-overlay h1{
+font-size:1.3rem;
+}
+
+.hero-overlay p{
+font-size:0.8rem;
+}
+
+h2{
+font-size:1.8rem;
+}
+.features-grid{
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+}
+.feature-card{
+    min-width: 200px;
+    flex:0 0 auto;
+    scroll-snap-align: center;
+}
+.feature-card p{
+    font-size: 12px;
+    line-height: 1,4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.fleet-row{
+    display: flex;
+    flex-direction:row !important;
+    align-items: center;
+    gap:12px;
+}
+.reverse{
+    flex-direction: row-reverse !important;
+}
+.fleet-text{
+    flex: 1;
+    text-align:left;
+    font-size: 12px;
+}
+.fleet-text h3{
+    font-size: 16px;
+}
+.fleet-image img{
+height:250px;
+}
+
+.booking-box{
+padding:20px;
+}
+
+.floating-call,
+.floating-whatsapp{
+width:55px;
+height:55px;
+font-size:24px;
+}
+
+}
+
+/* UNIVERSAL CENTER ALIGNMENT */
+
+section{
+    padding:70px 20px;
+    text-align:center;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.trust-section,
+.gallery-section,
+.pricing-section,
+.map-section,
+.review-slider{
+    text-align:center;
+}
+
+/* TRUST COUNTERS */
+
+.trust-grid{
+    max-width:1000px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.trust-card{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.trust-card h3{
+    font-size:32px;
+    color:#0f4c75;
+}
+
+/* GALLERY */
+
+.gallery-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.gallery-grid img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+/* PRICING */
+
+.price-grid{
+    max-width:1000px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.price-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+}
+
+.price-card h3{
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:28px;
+    font-weight:bold;
+    color:#ff3b30;
+}
+
+/* MAP */
+
+.map-box{
+    max-width:1000px;
+    margin:auto;
+}
+
+.map-box iframe{
+    width:100%;
+    height:400px;
+    border:none;
+    border-radius:15px;
+}
+
+/* BACK TO TOP */
+
+#topBtn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
     background:#0f4c75;
     color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-/* ===== MOBILE HERO FIX ===== */
-@media (max-width:768px){
-    .hero{
-        height: 30vh;
-    }
-
-    .hero h1{
-        font-size: 22px;
-    }
-
-    .hero p{
-        font-size: 12px;
-    }
+    font-size:22px;
+    cursor:pointer;
+    z-index:999;
+    display:none;
 }
