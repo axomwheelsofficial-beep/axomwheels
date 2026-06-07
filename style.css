@@ -264,6 +264,7 @@ text-decoration:none;
 
 .btn{
     background:#1b9c85;
+    text-decoration: none;
 }
 
 .btn.whatsapp{
