@@ -6,7 +6,6 @@ function sendAmbulanceBooking(){
 
 let name = document.getElementById("name").value;
 let phone = document.getElementById("phone").value;
-let ambulanceType = document.getElementById("ambulanceType").value;
 let pickup = document.getElementById("pickup").value;
 let destination = document.getElementById("destination").value;
 let patientType = document.getElementById("patientType").value;
@@ -17,7 +16,6 @@ let date = document.getElementById("date").value;
 if(
 name === "" ||
 phone === "" ||
-ambulanceType === "" ||
 pickup === "" ||
 destination === "" ||
 patientType === ""
@@ -29,29 +27,23 @@ return;
 // WhatsApp Message
 
 let message =
-"🚑 *AXOMWHEELS AMBULANCE BOOKING* %0A%0A" +
+" AXOMWHEELS AMBULANCE BOOKING %0A%0A" +
 
-"👤 Patient Name: " + name + " %0A" +
-"📞 Phone Number: " + phone + " %0A" +
-"🚑 Ambulance Type: " + ambulanceType + " %0A" +
-"📍 Pickup Location: " + pickup + " %0A" +
-"🏥 Destination: " + destination + " %0A" +
-"⚕️ Patient Condition: " + patientType + " %0A" +
-"📅 Date: " + date;
-
-// Your WhatsApp Number
-
-let phoneNumber = "919365368782";
+" Patient Name: " + name + " %0A" +
+" Phone Number: " + phone + " %0A" +
+" Pickup Location: " + pickup + " %0A" +
+" Destination: " + destination + " %0A" +
+" Patient Condition: " + patientType + " %0A" +
+" Date: " + date;
 
 // Open WhatsApp
 
-let url =
-"https://wa.me/" +
-phoneNumber +
-"?text=" +
+let phoneNumber = "919957382970";
+
+let url = "https://wa.me/"+phoneNumber+"?text="+
 encodeURIComponent(message);
 
-window.open(url, "_blank");
+window.open(url,"_blank");
 
 }
 
@@ -155,6 +147,8 @@ footer.innerHTML =
 
 const topBtn = document.getElementById("topBtn");
 
+if(topBtn){
+
 window.onscroll = function(){
 
 if(document.body.scrollTop > 300 ||
@@ -178,3 +172,5 @@ behavior:"smooth"
 });
 
 };
+
+}
