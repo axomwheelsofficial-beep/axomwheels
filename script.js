@@ -66,6 +66,18 @@ let date = document.getElementById("dateSingle").value;
 let time = document.getElementById("timeSingle").value;
 let people = document.getElementById("peopleSingle").value;
 
+if(
+car === "" ||
+pickup === "" ||
+drop === "" ||
+date === "" ||
+time === "" ||
+people === "" 
+){
+alert("Please fill all required fields.");
+return;
+}
+
 message =
 "AXOMWHEELS Trip Booking %0A%0A"+
 "Trip Type: Single Trip %0A"+
@@ -87,6 +99,19 @@ let duration = document.getElementById("duration").value;
 let date = document.getElementById("dateRound").value;
 let time = document.getElementById("timeRound").value;
 let people = document.getElementById("peopleRound").value;
+
+if(
+car === "" ||
+destination === "" ||
+pickup === "" ||
+duration === "" ||
+date === "" ||
+time === "" ||
+people === "" 
+){
+alert("Please fill all required fields.");
+return;
+}
 
 message =
 "AXOMWHEELS Trip Booking %0A%0A"+
