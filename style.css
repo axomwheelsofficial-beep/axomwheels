@@ -6,8 +6,15 @@
     font-family:Arial, sans-serif;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
-    background:#f2f9f9;
+background:#f5f8fb;
+color:#222;
+line-height:1.6;
+overflow-x:hidden;
 }
 
 /* ================= NAVBAR ================= */
@@ -368,6 +375,34 @@ text-decoration:none;
     margin:10px 0;
 }
 
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.review-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.review-card{
+    background:white;
+    padding:30px;
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
 /* ===== CONTACT SECTION ===== */
 
 .contact-section{
@@ -459,12 +494,21 @@ text-decoration:none;
 
 /* ================= FOOTER ================= */
 
-footer{
-    background:#0f4c75;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+.footer{
+background:#0f4c75;
+color:white;
+
+text-align:center;
+
+padding:50px 20px;
+}
+
+.footer h3{
+margin-bottom:15px;
+}
+
+.footer p{
+margin-bottom:10px;
 }
 
 /* ===== MOBILE HERO FIX ===== */
@@ -486,4 +530,38 @@ footer{
         font-size: 10px;
     }
 }
+/* BACK TO TOP */
 
+#topBtn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#000000;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:999;
+    display:none;
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.feature-card,
+.fleet-card,
+.review-card{
+    transition:0.3s ease;
+}
+
+.feature-card:hover,
+.fleet-card:hover,
+.review-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
