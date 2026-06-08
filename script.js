@@ -1,110 +1,567 @@
-// Select all dropdowns
-const dropdowns = document.querySelectorAll('.dropdown');
-
-dropdowns.forEach(dropdown => {
-    const button = dropdown.querySelector('.btn');
-
-    button.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent click from closing immediately
-
-        // Close all other dropdowns
-        dropdowns.forEach(d => {
-            if(d !== dropdown) d.classList.remove('show');
-        });
-
-        // Toggle current dropdown
-        dropdown.classList.toggle('show');
-    });
-});
-
-// Close dropdowns if clicked outside
-window.addEventListener('click', function() {
-    dropdowns.forEach(d => d.classList.remove('show'));
-});
-
-
-var menuToggle = document.getElementById("menu-toggle");
-var navLinks = document.getElementById("nav-links");
-
-menuToggle.onclick = function() {
-    navLinks.classList.toggle("active");
-};
-
-
-function showForm() {
-
-let tripType = document.getElementById("tripType").value;
-
-let single = document.getElementById("singleTripForm");
-let round = document.getElementById("roundTripForm");
-
-single.style.display = "none";
-round.style.display = "none";
-
-if (tripType === "single") {
-single.style.display = "block";
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
 }
 
-if (tripType === "round") {
-round.style.display = "block";
+html{
+scroll-behavior:smooth;
 }
 
+body{
+background:#f5f8fb;
+color:#222;
+line-height:1.6;
+overflow-x:hidden;
 }
 
-function sendWhatsApp(){
+/* ================= NAVBAR ================= */
 
-let tripType = document.getElementById("tripType").value;
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:linear-gradient(to right,#0f4c75,#1b9c85);
+    position:relative;
+    z-index:1000;
+}
 
-let message = "";
+.logo img{
+    height:55px;
+}
 
-if(tripType === "single"){
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
 
-let car = document.getElementById("carSingle").value;
-let pickup = document.getElementById("pickupSingle").value;
-let drop = document.getElementById("drop").value;
-let date = document.getElementById("dateSingle").value;
-let time = document.getElementById("timeSingle").value;
-let people = document.getElementById("peopleSingle").value;
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+}
 
-message =
-"AXOMWHEELS Trip Booking %0A%0A"+
-"Trip Type: Single Trip %0A"+
-"Car: "+car+" %0A"+
-"Pickup: "+pickup+" %0A"+
-"Drop: "+drop+" %0A"+
-"Date: "+date+" %0A"+
-"Time: "+time+" %0A"+
-"People: "+people;
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    color:white;
+    cursor:pointer;
+}
+
+/* MOBILE NAV */
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+        cursor:pointer;
+        font-size:24px;
+        color: #ffffff;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        right: 0;
+        width: 150px;;
+        background:#ffffff;
+        text-align:center;
+        padding:15px;
+        box-shadow: #000 5px 15px rgba(0,0,0,0.2);
+        border-radius: 8px;
+        z-index:1001;
+    }
+
+    .nav-links a{
+        color: #000 !important;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .nav-links li{
+        margin:5px 0;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu-toggle{
+        display: block;
+        cursor: pointer;
+        font-size: 25px;
+    }
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    height:83vh;
+    background:url("images/hero.jpg") no-repeat center center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+}
+
+.hero-content{
+    position:absolute;
+    top: 80px;
+    z-index:2;
+}
+
+.hero h1{
+    font-size:38px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.hero p{
+    margin-bottom:10px;
+    font-size:18px;
+}
+
+.hero-buttons{
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+    padding:10px 20px;
+    text-decoration:none;
+    border-radius:25px;
+    margin:5px;
+    display:inline-block;
+    font-weight:bold;
+}
+
+.btn-primary{
+    border:2px solid white;
+    color:#01c2e4;
+}
+
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+} 
+
+.ambulance-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:red;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* ================= BOOKING SECTION ================= */
+.booking-section {
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.booking-section h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.booking-section select,
+.booking-section input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.trip-form{
+    display: none;
+}
+
+.booking-section button {
+    width: 100%;
+    padding: 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor:pointer;
+    margin-top: 10px;
+}
+
+.booking-section :hover{
+    background: #ffffff;
+}
+
+
+
+/* ================= CARS ================= */
+
+.cars-section{
+    padding:50px 20px;
+    background:#f4f4f4;
+    text-align: center;
+}
+
+.car-container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    justify-content:center;
+}
+
+.car-box{
+    background:white;
+    width:290px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.car-box img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+    border-radius:8px;
+    margin-bottom:10px;
+}
+
+.car-contact-buttons{
+    display:flex;
+    justify-content:center;
+    gap:2px;
+    margin-top:10px;
+}
+
+.btn{
+    padding:3px 8px;
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    color:white;
+    font-size:12px;
+}
+
+.btn{
+    background:#1b9c85;
+    text-decoration: none;
+}
+
+.btn.whatsapp{
+    background:#25D366;
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+    position:relative;
+    display:inline-block;
+}
+
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background:white;
+    min-width:160px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    border-radius:5px;
+    z-index:10;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+
+.dropdown-content a:hover{
+    background:#f1f1f1;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* ================= DESTINATIONS ================= */
+
+.destinations{
+    padding:50px 20px;
+    text-align: center;
+}
+
+/* Laptop layout */
+.destination-box{
+    width:260px;
+    display:inline-block;
+    margin:15px auto;
+    text-align:center;
+    vertical-align: top;
+}
+
+/* same image size */
+.destination-box img{
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ===== MOBILE ONLY ===== */
+@media (max-width:768px){
+    .destinations{
+        text-align: center;
+    }
+    .destination-box{
+        display: block;
+        width: 250px;
+        margin: 20px auto;
+    }
+    .destination-box img{
+        width: 250px;
+        height: 180px; /* same height sabka */
+        object-fit: cover; /* image crop karega but stretch nahi karega */
+        border-radius: 8px;
+    }
 
 }
 
-if(tripType === "round"){
+/* ================= ABOUT ================= */
 
-let car = document.getElementById("carRound").value;
-let destination = document.getElementById("destination").value;
-let pickup = document.getElementById("pickupRound").value;
-let duration = document.getElementById("duration").value;
-let date = document.getElementById("dateRound").value;
-let time = document.getElementById("timeRound").value;
-let people = document.getElementById("peopleRound").value;
-
-message =
-"AXOMWHEELS Trip Booking %0A%0A"+
-"Trip Type: Round Trip %0A"+
-"Car: "+car+" %0A"+
-"Destination: "+destination+" %0A"+
-"Pickup: "+pickup+" %0A"+
-"Duration: "+duration+" %0A"+
-"Date: "+date+" %0A"+
-"Time: "+time+" %0A"+
-"People: "+people;
-
+.about-section{
+    background:linear-gradient(to right,#0f2027,#2c5364);
+    color:white;
+    padding:65px 30px;
+    text-align:center;
 }
 
-let phoneNumber = "919957382970";
+.about-section h2{
+    margin-bottom:25px;
+}
 
-let url = "https://wa.me/"+phoneNumber+"?text="+message;
+.about-section ul{
+    list-style:none;
+    margin-top:25px;
+}
 
-window.open(url,"_blank");
+.about-section li{
+    margin:10px 0;
+}
 
+/* =========================
+   REVIEWS
+========================= */
+
+.reviews h2{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.review-grid{
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.review-card{
+    background:white;
+    padding:30px;
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+/* ===== CONTACT SECTION ===== */
+
+.contact-section{
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.contact-section h2{
+    margin-bottom: 25px;
+}
+
+/* Buttons row */
+.contact-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Dropdown wrapper */
+.dropdown{
+    position: relative;
+}
+
+/* Common button style */
+.btn{
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 150px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Colors */
+.btn.call{
+    background: #fc3131;
+    color: white;
+}
+
+.btn.whatsapp{
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+}
+
+.btn.email{
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+}
+
+/* Dropdown content */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 150px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 6px;
+}
+
+.dropdown-content a{
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover{
+    background: #f1f1f1;
+}
+
+/* Show dropdown */
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+/* ===== MOBILE CONTACT FIX ===== */
+@media(max-width:768px) {
+    .contact-buttons{
+        flex-direction: column;
+    text-align: center;
+}
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+background:#0f4c75;
+color:white;
+
+text-align:center;
+
+padding:50px 20px;
+}
+
+.footer h3{
+margin-bottom:15px;
+}
+
+.footer p{
+margin-bottom:10px;
+}
+
+/* ===== MOBILE HERO FIX ===== */
+@media (max-width:768px){
+    .hero{
+        height:35vh;
+        text-align: center;
+        padding: 20px;
+    }
+    .hero-content{
+        top: 20px;
+        padding:0 15px;
+    }
+    .hero h1{
+        font-size: 16px;
+    }
+
+    .hero p{
+        font-size: 10px;
+    }
+}
+/* BACK TO TOP */
+
+#topBtn{
+    position:fixed;
+    left:20px;
+    bottom:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#000000;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    z-index:999;
+    display:none;
+}
+
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.feature-card,
+.fleet-card,
+.review-card{
+    transition:0.3s ease;
+}
+
+.feature-card:hover,
+.fleet-card:hover,
+.review-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
