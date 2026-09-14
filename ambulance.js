@@ -43,14 +43,16 @@ return;
 // WhatsApp Message
 
 let message =
-" AXOMWHEELS AMBULANCE BOOKING %0A%0A" +
+" AXOMWHEELS AMBULANCE BOOKING\n\n" +
 
-" Patient Name: " + name + " %0A" +
-" Phone Number: " + phone + " %0A" +
-" Pickup Location: " + pickup + " %0A" +
-" Destination: " + destination + " %0A" +
-" Patient Condition: " + patientType + " %0A" +
-" Date: " + date;
+" Patient Name: " + name + "\n" +
+" Phone Number: " + phone + "\n" +
+" Pickup Location: " + pickup + "\n" +
+" Destination: " + destination + "\n" +
+" Patient Condition: " + patientType + "\n" +
+" Date: " + date + "\n" +
+
+"Thanks for choosing us;
 
 // Open WhatsApp
 
