@@ -52,7 +52,7 @@ let message =
 " Patient Condition: " + patientType + "\n" +
 " Date: " + date + "\n" +
 
-"Thanks for choosing us.\n";
+" Thanks for choosing us\n";
 
 // Open WhatsApp
 
