@@ -203,7 +203,7 @@ font-weight:500;
 
 .hero-content h1{
 
-font-size:50px;
+font-size:48px;
 font-weight:600;
 line-height:1.2;
 margin-bottom:20px;
@@ -1296,7 +1296,7 @@ transform:translateY(0);
 @media (min-width:1440px){
 
 .hero{
-      height: 530px;
+      height: 550px;
 }
 .container{
     max-width:1440px;
@@ -1304,7 +1304,8 @@ transform:translateY(0);
 }
 
 .hero-content h1{
-    font-size:45px;
+    font-size:42px;
+    transform: translateY(30px);
 }
 
 .hero-content p{
