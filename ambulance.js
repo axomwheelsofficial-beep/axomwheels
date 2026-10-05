@@ -129,39 +129,6 @@ button.style.transform =
 });
 
 });
-
-// =========================
-// AUTO YEAR FOOTER
-// =========================
-
-const footer =
-document.querySelector(".footer");
-
-if(footer){
-
-const year =
-new Date().getFullYear();
-
-footer.innerHTML =
-`
-<h3>AxomWheels Ambulance Service</h3>
-
-<p>
-24/7 Emergency Ambulance Service Across Assam
-</p>
-
-<p>
-📞 +91 93653 68782
-</p>
-
-<p>
-© ${year} AxomWheels. All Rights Reserved.
-</p>
-`;
-
-}
-
-
 /*==============================
   BACK TO TOP
 ==============================*/
