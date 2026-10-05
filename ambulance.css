@@ -433,24 +433,37 @@ text-decoration:none;
 /* =========================
    FOOTER
 ========================= */
-
 .footer{
-background:#0f4c75;
-color:white;
+
+background:#071c38;
+
+padding:50px 8%;
 
 text-align:center;
 
-padding:50px 20px;
+color:white;
+
 }
 
 .footer h3{
+
+font-size:32px;
+
 margin-bottom:15px;
+
+color:#00d26a;
+
 }
 
 .footer p{
-margin-bottom:10px;
-}
 
+font-size:16px;
+
+color:#ddd;
+
+line-height:1.8;
+
+}
 /* =========================
    FLOATING BUTTONS
 ========================= */
