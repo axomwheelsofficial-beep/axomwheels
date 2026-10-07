@@ -248,6 +248,7 @@ section{
 .btn-primary{
     background:#00c96b;
     color:#fff;
+    align-items: center;
 }
 
 .btn-primary:hover{
@@ -258,6 +259,7 @@ section{
 .btn-secondary{
     background:#fff;
     color:#0a5ed7;
+    align-items: center;
 }
 
 .btn-secondary:hover{
@@ -1034,7 +1036,7 @@ section{
 
     .hero-buttons a{
         width:48%;
-
+        align-items: center;
         font-size:15px;
 
         padding:
@@ -1200,11 +1202,12 @@ section{
 
     .hero-buttons{
         gap:10px;
+        align-items: center;
     }
 
     .hero-buttons a{
         width:48%;
-
+        align-items: center;
         font-size:11px;
 
         padding:
