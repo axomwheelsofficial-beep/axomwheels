@@ -1,66 +1,110 @@
 /*==========================================
- AXOMWHEELS V2.0
- SCRIPT.JS
+ AXOMWHEELS
+ OPTIMIZED SCRIPT.JS
 ==========================================*/
 
-/*==============================
-  MOBILE MENU
-==============================*/
+
+/* ==========================================
+   ELEMENTS
+========================================== */
 
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
+const topBtn = document.getElementById("topBtn");
+const navbar = document.querySelector(".navbar");
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
+const sections = document.querySelectorAll("section");
+const navItems = document.querySelectorAll(".nav-links a[href^='#']");
 
-/*==============================
-  SHOW BOOKING FORM
-==============================*/
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.toggle("active");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
+
+    });
+
+}
+
+
+/* ==========================================
+   SHOW BOOKING FORM
+========================================== */
 
 function showForm() {
 
-    const type = document.getElementById("tripType").value;
+    const tripType = document.getElementById("tripType");
 
     const single = document.getElementById("singleTripForm");
     const round = document.getElementById("roundTripForm");
 
+    if (!tripType || !single || !round) {
+        return;
+    }
+
+    const type = tripType.value;
+
     if (type === "single") {
 
-        single.style.display = "block";
-        round.style.display = "none";
+        single.hidden = false;
+        round.hidden = true;
 
     }
 
     else if (type === "round") {
 
-        round.style.display = "block";
-        single.style.display = "none";
+        single.hidden = true;
+        round.hidden = false;
 
     }
 
     else {
 
-        single.style.display = "none";
-        round.style.display = "none";
+        single.hidden = true;
+        round.hidden = true;
 
     }
 
 }
 
-/*==============================
-  WHATSAPP BOOKING
-==============================*/
+
+/* ==========================================
+   WHATSAPP BOOKING
+========================================== */
 
 function sendWhatsApp(number) {
 
-let message = "";
+    const tripType =
+        document.getElementById("tripType");
 
-const tripType = document.getElementById("tripType").value;
+    if (!tripType) {
+        return;
+    }
 
-if(tripType==="single"){
+    let message = "";
 
-message =
+    /* ONE WAY */
+
+    if (tripType.value === "single") {
+
+        message =
 ` *Booking*
 
 Trip : One Way
@@ -77,11 +121,14 @@ Time : ${document.getElementById("timeSingle").value}
 
 Passengers : ${document.getElementById("peopleSingle").value}`;
 
-}
+    }
 
-else{
 
-message =
+    /* ROUND TRIP */
+
+    else if (tripType.value === "round") {
+
+        message =
 ` *Booking*
 
 Trip : Round Trip
@@ -100,193 +147,204 @@ Time : ${document.getElementById("timeRound").value}
 
 Passengers : ${document.getElementById("peopleRound").value}`;
 
+    }
+
+    else {
+
+        return;
+
+    }
+
+
+    const whatsappURL =
+        `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+
+
+    window.open(
+        whatsappURL,
+        "_blank",
+        "noopener"
+    );
+
 }
 
-window.open(
 
-`https://wa.me/${number}?text=${encodeURIComponent(message)}`,
+/* ==========================================
+   MOBILE MENU LINK HANDLING
+========================================== */
 
-"_blank"
+if (navLinks) {
 
+    navLinks.addEventListener("click", (event) => {
+
+        const link = event.target.closest("a");
+
+        if (!link) {
+            return;
+        }
+
+        navLinks.classList.remove("active");
+
+        if (menuToggle) {
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Open navigation menu"
+            );
+
+        }
+
+    });
+
+}
+
+
+/* ==========================================
+   SCROLL HANDLING
+========================================== */
+
+let scrollTicking = false;
+
+function updateOnScroll() {
+
+    const scrollY = window.scrollY;
+
+
+    /* ==============================
+       NAVBAR
+    ============================== */
+
+    if (navbar) {
+
+        navbar.classList.toggle(
+            "scrolled",
+            scrollY > 60
+        );
+
+    }
+
+
+    /* ==============================
+       BACK TO TOP
+    ============================== */
+
+    if (topBtn) {
+
+        topBtn.classList.toggle(
+            "show",
+            scrollY > 400
+        );
+
+    }
+
+
+    /* ==============================
+       ACTIVE NAVIGATION
+    ============================== */
+
+    let currentSection = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 130;
+
+        if (scrollY >= sectionTop) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navItems.forEach(link => {
+
+        const href =
+            link.getAttribute("href");
+
+        link.classList.toggle(
+            "active",
+            href === `#${currentSection}`
+        );
+
+    });
+
+
+    scrollTicking = false;
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if (!scrollTicking) {
+
+            window.requestAnimationFrame(
+                updateOnScroll
+            );
+
+            scrollTicking = true;
+
+        }
+
+    },
+    {
+        passive:true
+    }
 );
 
-}
 
-/*==============================
-  BACK TO TOP
-==============================*/
+/* ==========================================
+   BACK TO TOP
+========================================== */
 
-const topBtn = document.getElementById("topBtn");
+if (topBtn) {
 
-window.addEventListener("scroll",()=>{
+    topBtn.addEventListener(
+        "click",
+        () => {
 
-if(window.scrollY>400){
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
 
-topBtn.style.display="block";
-
-}
-
-else{
-
-topBtn.style.display="none";
-
-}
-
-});
-
-topBtn.addEventListener("click",()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-});
-
-/*==============================
-  STICKY NAVBAR
-==============================*/
-
-window.addEventListener("scroll",()=>{
-
-const navbar=document.querySelector(".navbar");
-
-if(window.scrollY>60){
-
-navbar.style.background="#071c38";
-
-navbar.style.padding="12px 8%";
+        }
+    );
 
 }
 
-else{
 
-navbar.style.background="rgba(0,0,0,.45)";
+/* ==========================================
+   INITIAL STATE
+========================================== */
 
-navbar.style.padding="16px 8%";
+updateOnScroll();
 
-}
 
-});
+/* ==========================================
+   PAGE LOADED
+========================================== */
 
-/*==============================
-  REVEAL ANIMATION
-==============================*/
+window.addEventListener(
+    "load",
+    () => {
 
-function reveal(){
+        document.body.classList.add("loaded");
 
-const reveals=document.querySelectorAll(".reveal");
+    }
+);
 
-reveals.forEach(box=>{
 
-const windowHeight=window.innerHeight;
-
-const top=box.getBoundingClientRect().top;
-
-if(top<windowHeight-100){
-
-box.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",reveal);
-
-reveal();
-
-/*==============================
-  SMOOTH MENU SCROLL
-==============================*/
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-
-anchor.addEventListener("click",function(e){
-
-e.preventDefault();
-
-const target=document.querySelector(this.getAttribute("href"));
-
-if(target){
-
-target.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-});
-
-});
-
-/*==============================
-  ACTIVE MENU
-==============================*/
-
-const sections=document.querySelectorAll("section");
-const navItems=document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll",()=>{
-
-let current="";
-
-sections.forEach(section=>{
-
-const top=section.offsetTop-120;
-
-const height=section.offsetHeight;
-
-if(pageYOffset>=top){
-
-current=section.getAttribute("id");
-
-}
-
-});
-
-navItems.forEach(link=>{
-
-link.classList.remove("active");
-
-if(link.getAttribute("href")==="#"+current){
-
-link.classList.add("active");
-
-}
-
-});
-
-});
-
-/*==============================
-  IMAGE LAZY EFFECT
-==============================*/
-
-const images=document.querySelectorAll("img");
-
-images.forEach(img=>{
-
-img.loading="lazy";
-
-});
-
-/*==============================
-  PRELOADER (Optional)
-==============================*/
-
-window.addEventListener("load",()=>{
-
-document.body.classList.add("loaded");
-
-});
-
-/*==============================
-  END
-==============================*/
+/* ==========================================
+   END
+========================================== */
