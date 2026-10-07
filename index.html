@@ -1,36 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Axomwheels | Taxi & Ambulance Service in Guwahati</title>
-    <script type="applicaton/ld+json">
-        {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "name":Axomwheels",
-        "alternateName":"Axom wheels",
-        "url":"https://axomwheels.in/"
-        }
-    </script>
 
     <meta name="description"
-        content="Book reliable taxi and 24/7 ambulance services in Guwahati with Axomwheels.">
+          content="Book reliable taxi and 24/7 ambulance services in Guwahati with Axomwheels.">
 
+    <meta name="theme-color"
+          content="#071c38">
+
+    <!-- Favicon -->
     <link rel="icon" href="favi.jpg">
-    <link rel="preload"
-      href="images/hero.jpg"
-      as="image"
-      fetchpriority="high">
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!--
+        HERO IMAGE
+        This is the main above-the-fold image,
+        so preload it instead of lazy-loading it.
+    -->
+    <link rel="preload"
+          href="images/hero.jpg"
+          as="image"
+          fetchpriority="high">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <!-- Font Awesome -->
+    <link rel="preconnect"
+          href="https://cdnjs.cloudflare.com">
+
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Axomwheels",
+        "alternateName": "Axom wheels",
+        "url": "https://www.axomwheels.in/"
+    }
+    </script>
+
 </head>
 
 <body>
@@ -39,737 +69,936 @@
 
 <header>
 
-<nav class="navbar">
+    <nav class="navbar">
 
-<div class="logo">
-<a href="#home">
-<img src="images/lo.png" alt="Axomwheels Logo">
-</a>
-</div>
+        <div class="logo">
+            <a href="#home" aria-label="Axomwheels Home">
+                <img src="images/lo.png"
+                     alt="Axomwheels Logo"
+                     width="130"
+                     height="50">
+            </a>
+        </div>
 
-<div class="menu-toggle" id="menu-toggle">
-    ☰
-</div>
+        <button class="menu-toggle"
+                id="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="nav-links"
+                aria-expanded="false">
+            ☰
+        </button>
 
-<ul class="nav-links" id="nav-links">
+        <ul class="nav-links" id="nav-links">
 
-<li><a href="#home">Home</a></li>
+            <li>
+                <a href="#home">Home</a>
+            </li>
 
-<li><a href="#booking-section">Book</a></li>
+            <li>
+                <a href="#booking-section">Book</a>
+            </li>
 
-<li><a href="#cars">Cars</a></li>
+            <li>
+                <a href="#cars">Cars</a>
+            </li>
 
-<li><a href="#destinations">Destinations</a></li>
+            <li>
+                <a href="#destinations">Destinations</a>
+            </li>
 
-<li><a href="#about">About</a></li>
+            <li>
+                <a href="#about">About</a>
+            </li>
 
-<li><a href="#contact">Contact</a></li>
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
 
-<li>
-<a href="ambulance.html" class="ambulance-nav">
-<i class="fa-solid fa-truck-medical"></i>
-Ambulance
-</a>
-</li>
+            <li>
+                <a href="ambulance.html"
+                   class="ambulance-nav">
+                    <i class="fa-solid fa-truck-medical"
+                       aria-hidden="true"></i>
+                    Ambulance
+                </a>
+            </li>
 
-</ul>
+        </ul>
 
-</nav>
+    </nav>
 
 </header>
+
 
 <!-- ================= HERO ================= -->
 
 <section id="home" class="hero">
 
-<div class="hero-overlay"></div>
+    <div class="hero-overlay"
+         aria-hidden="true"></div>
 
-<div class="hero-content">
+    <div class="hero-content">
+
+        <h1>
+            Comfortable Taxi & Emergency Ambulance Service In Guwahati
+        </h1>
+
+        <p>
+            জয় জুবিন দা
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#booking-section"
+               class="btn-primary">
+
+                <i class="fa-solid fa-car"
+                   aria-hidden="true"></i>
+
+                Book Your Trip
+
+            </a>
+
+            <a href="ambulance.html"
+               class="btn-secondary">
+
+                <i class="fa-solid fa-truck-medical"
+                   aria-hidden="true"></i>
+
+                Emergency Ambulance
+
+            </a>
+
+        </div>
 
 
-<h1>
+        <div class="hero-stats">
 
-Comfortable Taxi & Emergency Ambulance Service In Guwahati
+            <div class="stat-box">
+                <h2>24/7</h2>
+                <span>Support</span>
+            </div>
 
-</h1>
+            <div class="stat-box">
+                <h2>50+</h2>
+                <span>Destinations</span>
+            </div>
 
-<p>
+            <div class="stat-box">
+                <h2>1000+</h2>
+                <span>Happy Travellers</span>
+            </div>
 
-জয় জুবিন দা
+        </div>
 
-</p>
-
-<div class="hero-buttons">
-
-<a href="#booking-section" class="btn-primary">
-
-<i class="fa-solid fa-car"></i>
-
-Book Your Trip
-
-</a>
-
-<a href="ambulance.html" class="btn-secondary">
-
-<i class="fa-solid fa-truck-medical"></i>
-
-Emergency Ambulance
-
-</a>
-
-</div>
-
-<div class="hero-stats">
-
-<div class="stat-box">
-<h2>24/7</h2>
-<span>Support</span>
-</div>
-
-<div class="stat-box">
-<h2>50+</h2>
-<span>Destinations</span>
-</div>
-
-<div class="stat-box">
-<h2>1000+</h2>
-<span>Happy Travellers</span>
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+
 
 <!-- ================= BOOKING ================= -->
 
-<section id="booking-section" class="booking-section">
+<section id="booking-section"
+         class="booking-section">
 
-<div class="section-heading">
+    <div class="section-heading">
 
-<h2>Book Your Ride</h2>
+        <h2>Book Your Ride</h2>
 
-<p>
-Simple • Fast • Secure WhatsApp Booking
-</p>
+        <p>
+            Simple • Fast • Secure WhatsApp Booking
+        </p>
 
-</div>
+    </div>
 
-<div class="booking-wrapper">
 
-<select id="tripType" onchange="showForm()">
+    <div class="booking-wrapper">
 
-<option value="">Select Trip Type</option>
+        <select id="tripType"
+                aria-label="Select Trip Type"
+                onchange="showForm()">
 
-<option value="single">
-One Way Trip
-</option>
+            <option value="">
+                Select Trip Type
+            </option>
 
-<option value="round">
-Round Trip
-</option>
+            <option value="single">
+                One Way Trip
+            </option>
 
-</select>
+            <option value="round">
+                Round Trip
+            </option>
 
-<!-- SINGLE TRIP -->
+        </select>
 
-<div id="singleTripForm" class="trip-form" style="display:none;">
 
-<div class="booking-box">
+        <!-- SINGLE TRIP -->
 
-<h3>One Way Booking</h3>
+        <div id="singleTripForm"
+             class="trip-form"
+             hidden>
 
-<select id="carSingle">
+            <div class="booking-box">
 
-<option value="">Select Vehicle</option>
+                <h3>
+                    One Way Booking
+                </h3>
 
-<option value="Innova Crysta">
-Innova Crysta
-</option>
 
-<option value="Scorpio S11">
-Scorpio S11
-</option>
+                <select id="carSingle"
+                        aria-label="Select Vehicle">
 
-<option value="Scorpio N">
-Scorpio N
-</option>
+                    <option value="">
+                        Select Vehicle
+                    </option>
 
-<option value="Bolero">
-Bolero
-</option>
+                    <option value="Innova Crysta">
+                        Innova Crysta
+                    </option>
 
-<option value="Dzire">
-Dzire
-</option>
+                    <option value="Scorpio S11">
+                        Scorpio S11
+                    </option>
 
-<option value="Fronx">
-Fronx
-</option>
+                    <option value="Scorpio N">
+                        Scorpio N
+                    </option>
 
-<option value="Alto">
-Alto
-</option>
+                    <option value="Bolero">
+                        Bolero
+                    </option>
 
-</select>
+                    <option value="Dzire">
+                        Dzire
+                    </option>
 
-<input
-type="text"
-id="pickupSingle"
-placeholder="Pickup Location">
+                    <option value="Fronx">
+                        Fronx
+                    </option>
 
-<input
-type="text"
-id="drop"
-placeholder="Drop Location">
+                    <option value="Alto">
+                        Alto
+                    </option>
 
-<input
-type="date"
-id="dateSingle">
+                </select>
 
-<input
-type="time"
-id="timeSingle">
 
-<input
-type="number"
-id="peopleSingle"
-placeholder="Number of Passengers">
+                <input type="text"
+                       id="pickupSingle"
+                       placeholder="Pickup Location"
+                       autocomplete="street-address">
 
-<button
-class="btn whatsapp"
-onclick="sendWhatsApp(919957382970)">
 
-<i class="fab fa-whatsapp"></i>
+                <input type="text"
+                       id="drop"
+                       placeholder="Drop Location"
+                       autocomplete="street-address">
 
-Book on WhatsApp
 
-</button>
+                <input type="date"
+                       id="dateSingle"
+                       aria-label="Travel Date">
 
-</div>
 
-</div>
+                <input type="time"
+                       id="timeSingle"
+                       aria-label="Travel Time">
 
-<!-- ROUND TRIP -->
 
-<div id="roundTripForm" class="trip-form" style="display:none;">
+                <input type="number"
+                       id="peopleSingle"
+                       placeholder="Number of Passengers"
+                       min="1"
+                       inputmode="numeric">
 
-<div class="booking-box">
 
-<h3>Round Trip Booking</h3>
+                <button class="btn whatsapp"
+                        type="button"
+                        onclick="sendWhatsApp(919957382970)">
 
-<select id="carRound">
+                    <i class="fab fa-whatsapp"
+                       aria-hidden="true"></i>
 
-<option value="">Select Vehicle</option>
+                    Book on WhatsApp
 
-<option value="Innova Crysta">
-Innova Crysta
-</option>
+                </button>
 
-<option value="Scorpio S11">
-Scorpio S11
-</option>
+            </div>
 
-<option value="Scorpio N">
-Scorpio N
-</option>
+        </div>
 
-<option value="Bolero">
-Bolero
-</option>
 
-<option value="Dzire">
-Dzire
-</option>
+        <!-- ROUND TRIP -->
 
-<option value="Fronx">
-Fronx
-</option>
+        <div id="roundTripForm"
+             class="trip-form"
+             hidden>
 
-<option value="Alto">
-Alto
-</option>
+            <div class="booking-box">
 
-</select>
+                <h3>
+                    Round Trip Booking
+                </h3>
 
-<input
-type="text"
-id="destination"
-placeholder="Destination">
 
-<input
-type="text"
-id="pickupRound"
-placeholder="Pickup Location">
+                <select id="carRound"
+                        aria-label="Select Vehicle">
 
-<select id="duration">
+                    <option value="">
+                        Select Vehicle
+                    </option>
 
-<option value="">
-Trip Duration
-</option>
+                    <option value="Innova Crysta">
+                        Innova Crysta
+                    </option>
 
-<option>
-1 Day Trip
-</option>
+                    <option value="Scorpio S11">
+                        Scorpio S11
+                    </option>
 
-<option>
-1 Day 1 Night
-</option>
+                    <option value="Scorpio N">
+                        Scorpio N
+                    </option>
 
-<option>
-2 Days 1 Night
-</option>
+                    <option value="Bolero">
+                        Bolero
+                    </option>
 
-<option>
-3 Days 2 Nights
-</option>
+                    <option value="Dzire">
+                        Dzire
+                    </option>
 
-<option>
-4 Days 3 Nights
-</option>
+                    <option value="Fronx">
+                        Fronx
+                    </option>
 
-<option>
-5 Days 4 Nights
-</option>
+                    <option value="Alto">
+                        Alto
+                    </option>
 
-</select>
+                </select>
 
-<input
-type="date"
-id="dateRound">
 
-<input
-type="time"
-id="timeRound">
+                <input type="text"
+                       id="destination"
+                       placeholder="Destination">
 
-<input
-type="number"
-id="peopleRound"
-placeholder="Number of Passengers">
 
-<button
-class="btn whatsapp"
-onclick="sendWhatsApp(919957382970)">
+                <input type="text"
+                       id="pickupRound"
+                       placeholder="Pickup Location"
+                       autocomplete="street-address">
 
-<i class="fab fa-whatsapp"></i>
 
-Book on WhatsApp
+                <select id="duration"
+                        aria-label="Trip Duration">
 
-</button>
+                    <option value="">
+                        Trip Duration
+                    </option>
 
-</div>
+                    <option>
+                        1 Day Trip
+                    </option>
 
-</div>
+                    <option>
+                        1 Day 1 Night
+                    </option>
 
-</div>
+                    <option>
+                        2 Days 1 Night
+                    </option>
+
+                    <option>
+                        3 Days 2 Nights
+                    </option>
+
+                    <option>
+                        4 Days 3 Nights
+                    </option>
+
+                    <option>
+                        5 Days 4 Nights
+                    </option>
+
+                </select>
+
+
+                <input type="date"
+                       id="dateRound"
+                       aria-label="Travel Date">
+
+
+                <input type="time"
+                       id="timeRound"
+                       aria-label="Travel Time">
+
+
+                <input type="number"
+                       id="peopleRound"
+                       placeholder="Number of Passengers"
+                       min="1"
+                       inputmode="numeric">
+
+
+                <button class="btn whatsapp"
+                        type="button"
+                        onclick="sendWhatsApp(919957382970)">
+
+                    <i class="fab fa-whatsapp"
+                       aria-hidden="true"></i>
+
+                    Book on WhatsApp
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ======= PART 1 END ======= -->
- <!-- ================= OUR CARS ================= -->
 
-<section id="cars" class="cars-section">
+<!-- ================= OUR CARS ================= -->
 
-<div class="section-heading">
+<section id="cars"
+         class="cars-section">
 
-<h2>Our Premium Fleet</h2>
+    <div class="section-heading">
 
-<p>Choose the perfect vehicle for your journey.</p>
+        <h2>Our Premium Fleet</h2>
 
-</div>
+        <p>
+            Choose the perfect vehicle for your journey.
+        </p>
 
-<div class="car-container">
+    </div>
 
-<!-- Innova -->
 
-<div class="car-box">
+    <div class="car-container">
 
-<div class="car-badge">Popular</div>
+        <!-- Innova -->
 
-<img src="images/innova.jpg" alt="Innova Crysta" loading="lazy">
+        <div class="car-box">
 
-<h3>Innova Crysta</h3>
+            <div class="car-badge">
+                Popular
+            </div>
 
-<ul class="car-features">
-<li>✔ 7 Seater</li>
-<li>✔ AC</li>
-<li>✔ Comfortable</li>
-<li>✔ Family Trip</li>
-</ul>
+            <img src="images/innova.webp"
+                 alt="Innova Crysta"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Innova Crysta
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ 7 Seater</li>
+                <li>✔ AC</li>
+                <li>✔ Comfortable</li>
+                <li>✔ Family Trip</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Scorpio S11 -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/scorpio.jpg" alt="Scorpio S11" loading="lazy">
 
-<h3>Scorpio S11</h3>
+        <!-- Scorpio S11 -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ 7 Seater</li>
-<li>✔ SUV</li>
-<li>✔ Hill Drive</li>
-<li>✔ Comfortable</li>
-</ul>
+            <img src="images/scorpio.webp"
+                 alt="Scorpio S11"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Scorpio S11
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ 7 Seater</li>
+                <li>✔ SUV</li>
+                <li>✔ Hill Drive</li>
+                <li>✔ Comfortable</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Scorpio N -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/scorpion.jpg" alt="Scorpio N" loading="lazy">
 
-<h3>Scorpio N</h3>
+        <!-- Scorpio N -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ Premium SUV</li>
-<li>✔ Luxury Interior</li>
-<li>✔ Hill Ready</li>
-<li>✔ Long Tour</li>
-</ul>
+            <img src="images/scorpion.webp"
+                 alt="Scorpio N"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Scorpio N
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ Premium SUV</li>
+                <li>✔ Luxury Interior</li>
+                <li>✔ Hill Ready</li>
+                <li>✔ Long Tour</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Bolero -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/bolero.jpg" alt="Bolero" loading="lazy">
 
-<h3>Bolero</h3>
+        <!-- Bolero -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ Village Tour</li>
-<li>✔ Strong SUV</li>
-<li>✔ Budget</li>
-<li>✔ Reliable</li>
-</ul>
+            <img src="images/bolero.webp"
+                 alt="Bolero"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Bolero
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ Village Tour</li>
+                <li>✔ Strong SUV</li>
+                <li>✔ Budget</li>
+                <li>✔ Reliable</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Dzire -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/dzire.webp" alt="Dzire" loading="lazy">
 
-<h3>Dzire</h3>
+        <!-- Dzire -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ Sedan</li>
-<li>✔ AC</li>
-<li>✔ Budget</li>
-<li>✔ Comfortable</li>
-</ul>
+            <img src="images/dzire.webp"
+                 alt="Dzire"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Dzire
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ Sedan</li>
+                <li>✔ AC</li>
+                <li>✔ Budget</li>
+                <li>✔ Comfortable</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Fronx -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/fronx.png" alt="Fronx" loading="lazy">
 
-<h3>Fronx</h3>
+        <!-- Fronx -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ Compact SUV</li>
-<li>✔ Stylish</li>
-<li>✔ AC</li>
-<li>✔ Comfortable</li>
-</ul>
+            <img src="images/fronx.png"
+                 alt="Fronx"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Fronx
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ Compact SUV</li>
+                <li>✔ Stylish</li>
+                <li>✔ AC</li>
+                <li>✔ Comfortable</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-<!-- Alto -->
+            </div>
 
-<div class="car-box">
+        </div>
 
-<img src="images/alto.png" alt="Alto" loading="lazy">
 
-<h3>Alto</h3>
+        <!-- Alto -->
 
+        <div class="car-box">
 
-<ul class="car-features">
-<li>✔ Budget</li>
-<li>✔ 4 Seater</li>
-<li>✔ AC</li>
-<li>✔ City Ride</li>
-</ul>
+            <img src="images/alto.png"
+                 alt="Alto"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
 
-<div class="car-contact-buttons">
+            <h3>
+                Alto
+            </h3>
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+            <ul class="car-features">
+                <li>✔ Budget</li>
+                <li>✔ 4 Seater</li>
+                <li>✔ AC</li>
+                <li>✔ City Ride</li>
+            </ul>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+            <div class="car-contact-buttons">
 
-</div>
+                <a href="tel:+919957382970"
+                   class="btn call-btn">
+                    Call Now
+                </a>
 
-</div>
+                <a href="https://wa.me/919957382970"
+                   target="_blank"
+                   rel="noopener"
+                   class="btn whatsapp">
+                    WhatsApp
+                </a>
 
-</div>
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
+
 
 <!-- ================= DESTINATIONS ================= -->
 
-<section id="destinations" class="destinations">
+<section id="destinations"
+         class="destinations">
 
-<div class="section-heading">
+    <div class="section-heading">
 
-<h2>Popular Destinations</h2>
+        <h2>Popular Destinations</h2>
 
-<p>Explore the beauty of Northeast India.</p>
+        <p>
+            Explore the beauty of Northeast India.
+        </p>
 
-</div>
+    </div>
 
-<div class="destination-grid">
 
-<div class="destination-box">
-<img src="images/aizawl.jpg" alt="aizawl">
-<h3>Aizawl</h3>
-</div>
+    <div class="destination-grid">
 
-<div class="destination-box">
-<img src="images/cherrapunji.jpg" alt="Cherrapunji">
-<h3>Cherrapunji</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/aizawl.jpg"
+                 alt="Aizawl"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Aizawl</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/dawki.jpg" alt="Dawki">
-<h3>Dawki</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/cherrapunji.jpg"
+                 alt="Cherrapunji"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Cherrapunji</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/tawang.jpg" alt="Tawang">
-<h3>Tawang</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/dawki.jpg"
+                 alt="Dawki"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Dawki</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/kaziranga.jpg" alt="Kaziranga">
-<h3>Kaziranga</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/tawang.jpg"
+                 alt="Tawang"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Tawang</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/ziro.jpg" alt="Ziro Valley">
-<h3>Ziro Valley</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/kaziranga.jpg"
+                 alt="Kaziranga"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Kaziranga</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/sivasagar.webp" alt="Sivasagar">
-<h3>Sivasagar</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/ziro.jpg"
+                 alt="Ziro Valley"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Ziro Valley</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/darjeeling.jpg" alt="Darjeeling">
-<h3>Darjeeling</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/sivasagar.webp"
+                 alt="Sivasagar"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Sivasagar</h3>
+        </div>
 
-<div class="destination-box">
-<img src="images/krang.jpg" alt="krang">
-<h3>Krang Suri Waterfall</h3>
-</div>
+        <div class="destination-box">
+            <img src="images/darjeeling.jpg"
+                 alt="Darjeeling"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Darjeeling</h3>
+        </div>
 
-</div>
+        <div class="destination-box">
+            <img src="images/krang.jpg"
+                 alt="Krang Suri Waterfall"
+                 loading="lazy"
+                 decoding="async"
+                 width="800"
+                 height="500">
+            <h3>Krang Suri Waterfall</h3>
+        </div>
+
+    </div>
 
 </section>
+
 
 <!-- ================= ABOUT ================= -->
 
-<section id="about" class="about-section">
+<section id="about"
+         class="about-section">
 
-<div class="about-container">
+    <div class="about-container">
 
-<h2>About Axomwheels</h2>
+        <h2>
+            About Axomwheels
+        </h2>
 
-<p>
-Axomwheels provides trusted taxi services across Northeast India with professional drivers, clean vehicles and 24×7 support.
-</p>
+        <p>
+            Axomwheels provides trusted taxi services across Northeast India with professional drivers, clean vehicles and 24×7 support.
+        </p>
 
-<div class="about-features">
 
-<div class="feature-box">
-<h3>24×7</h3>
-<p>Support</p>
-</div>
+        <div class="about-features">
 
-<div class="feature-box">
-<h3>1000+</h3>
-<p>Happy Customers</p>
-</div>
+            <div class="feature-box">
+                <h3>24×7</h3>
+                <p>Support</p>
+            </div>
 
-<div class="feature-box">
-<h3>50+</h3>
-<p>Tour Destinations</p>
-</div>
+            <div class="feature-box">
+                <h3>1000+</h3>
+                <p>Happy Customers</p>
+            </div>
 
-</div>
+            <div class="feature-box">
+                <h3>50+</h3>
+                <p>Tour Destinations</p>
+            </div>
 
-</div>
+        </div>
 
-</section>
-
-<!-- ================= REVIEWS ================= -->
-
-<section class="reviews">
-
-<h2>Customer Reviews</h2>
-
-<div class="review-grid">
-
-<div class="review-card">
-★★★★★
-<p>Excellent service and polite driver.</p>
-<h4>- Rahul Sharma</h4>
-</div>
-
-<div class="review-card">
-★★★★★
-<p>Best taxi service for Meghalaya trip.</p>
-<h4>- Priya Das</h4>
-</div>
-
-<div class="review-card">
-★★★★★
-<p>Affordable and very comfortable ride.</p>
-<h4>- Arup Bora</h4>
-</div>
-
-</div>
+    </div>
 
 </section>
 
 <!-- ================= CONTACT ================= -->
 
-<section id="contact" class="contact-section">
+<section id="contact"
+         class="contact-section">
 
-<h2>Contact Us</h2>
+    <h2>
+        Contact Us
+    </h2>
 
-<div class="contact-buttons">
+    <div class="contact-buttons">
 
-<a href="tel:+919957382970" class="btn call-btn">
-Call Now
-</a>
+        <a href="tel:+919957382970"
+           class="btn call-btn">
+            Call Now
+        </a>
 
-<a href="https://wa.me/919957382970" target="_blank" class="btn whatsapp">
-WhatsApp
-</a>
+        <a href="https://wa.me/919957382970"
+           target="_blank"
+           rel="noopener"
+           class="btn whatsapp">
+            WhatsApp
+        </a>
 
-<a href="mailto:axomwheelsofficial@gmail.com" class="btn email">
-Email
-</a>
+        <a href="mailto:axomwheelsofficial@gmail.com"
+           class="btn email">
+            Email
+        </a>
 
-</div>
+    </div>
 
 </section>
 
-<button id="topBtn">↑</button>
+
+<!-- ================= BACK TO TOP ================= -->
+
+<button id="topBtn"
+        type="button"
+        aria-label="Back to top">
+    ↑
+</button>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
-<h3>Axomwheels</h3>
+    <h3>
+        Axomwheels
+    </h3>
 
-<p>
-Explore Northeast With Comfort
-</p>
-<p>
-📞 +91 93653 68782 
-</p>
-<p>
-📞 +91 99573 82970
-</p>
-<p>
-© 2026 Axomwheels. All Rights Reserved.
-</p>
+    <p>
+        Explore Northeast With Comfort
+    </p>
+
+    <p>
+        📞 +91 93653 68782
+    </p>
+
+    <p>
+        📞 +91 99573 82970
+    </p>
+
+    <p>
+        © 2026 Axomwheels. All Rights Reserved.
+    </p>
 
 </footer>
 
-<script src="script.js"></script>
+
+<!-- JavaScript -->
+<script src="script.js" defer></script>
 
 </body>
 </html>
