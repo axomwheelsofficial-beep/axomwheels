@@ -1,313 +1,655 @@
-/*==========================================
-AMBULANCE.JS
-AxomWheels Ambulance
-==========================================*/
+/* =========================================================
+   AXOMWHEELS AMBULANCE
+   OPTIMIZED JAVASCRIPT
+========================================================= */
 
-/*==============================
-  MOBILE MENU
-==============================*/
+(() => {
 
-const menuToggle = document.getElementById("menu-toggle");
-const navLinks = document.getElementById("nav-links");
+    "use strict";
 
-menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
 
-/*==============================
-  WHATSAPP BOOKING
-==============================*/
+    /* =====================================================
+       CONFIGURATION
+    ===================================================== */
 
-function sendAmbulanceBooking(){
+    const AMBULANCE_PHONE = "919365368782";
+    const BOOKING_WHATSAPP = "919957382970";
 
-let name = document.getElementById("name").value;
-let phone = document.getElementById("phone").value;
-let pickup = document.getElementById("pickup").value;
-let destination = document.getElementById("destination").value;
-let patientType = document.getElementById("patientType").value;
-let date = document.getElementById("date").value;
 
-// Validation
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
 
-if(
-name === "" ||
-phone === "" ||
-pickup === "" ||
-destination === "" ||
-patientType === ""
-){
-alert("Please fill all required fields.");
-return;
-}
+    const menuToggle =
+        document.getElementById("menu-toggle");
 
-// WhatsApp Message
+    const navLinks =
+        document.getElementById("nav-links");
 
-let message =
-" AXOMWHEELS AMBULANCE BOOKING\n\n" +
+    const navbar =
+        document.querySelector(".navbar");
 
-" Patient Name: " + name + "\n" +
-" Phone Number: " + phone + "\n" +
-" Pickup Location: " + pickup + "\n" +
-" Destination: " + destination + "\n" +
-" Patient Condition: " + patientType + "\n" +
-" Date: " + date + "\n" +
+    const topBtn =
+        document.getElementById("topBtn");
 
-" Thanks for choosing us\n";
+    const bookingBtn =
+        document.getElementById("booking-btn");
 
-// Open WhatsApp
 
-let phoneNumber = "919957382970";
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
 
-let url = "https://wa.me/"+phoneNumber+"?text="+
-encodeURIComponent(message);
+    if (menuToggle && navLinks) {
 
-window.open(url,"_blank");
+        const setMenuState = (isOpen) => {
 
-}
+            navLinks.classList.toggle(
+                "active",
+                isOpen
+            );
 
-// =========================
-// FAQ ACCORDION
-// =========================
+            menuToggle.setAttribute(
+                "aria-expanded",
+                String(isOpen)
+            );
 
-const faqQuestions =
-document.querySelectorAll(".faq-question");
+            menuToggle.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation menu"
+                    : "Open navigation menu"
+            );
+        };
 
-faqQuestions.forEach(question => {
 
-question.addEventListener("click", () => {
+        menuToggle.addEventListener(
+            "click",
+            () => {
 
-const answer =
-question.nextElementSibling;
+                const isOpen =
+                    navLinks.classList.contains("active");
 
-if(answer.style.display === "block"){
+                setMenuState(!isOpen);
+            }
+        );
 
-answer.style.display = "none";
 
-}else{
+        /* Close menu after clicking a link */
 
-document
-.querySelectorAll(".faq-answer")
-.forEach(item => {
+        navLinks.addEventListener(
+            "click",
+            (event) => {
 
-item.style.display = "none";
+                const link =
+                    event.target.closest("a");
 
-});
+                if (!link) {
+                    return;
+                }
 
-answer.style.display = "block";
+                setMenuState(false);
+            }
+        );
 
-}
 
-});
+        /* Close menu with Escape */
 
-});
+        document.addEventListener(
+            "keydown",
+            (event) => {
 
+                if (event.key === "Escape") {
+                    setMenuState(false);
+                }
+            }
+        );
 
+    }
 
-// =========================
-// FLOATING BUTTON EFFECT
-// =========================
 
-const floatingButtons =
-document.querySelectorAll(
-".floating-call, .floating-whatsapp"
-);
+    /* =====================================================
+       SET MINIMUM BOOKING DATE
+    ===================================================== */
 
-floatingButtons.forEach(button => {
+    const dateInput =
+        document.getElementById("date");
 
-button.addEventListener("mouseenter", () => {
+    if (dateInput) {
 
-button.style.transform =
-"scale(1.1)";
+        const today =
+            new Date();
 
-});
+        const localDate =
+            new Date(
+                today.getTime()
+                -
+                today.getTimezoneOffset() * 60000
+            )
+                .toISOString()
+                .split("T")[0];
 
-button.addEventListener("mouseleave", () => {
+        dateInput.min = localDate;
+    }
 
-button.style.transform =
-"scale(1)";
 
-});
+    /* =====================================================
+       WHATSAPP BOOKING
+    ===================================================== */
 
-});
-/*==============================
-  BACK TO TOP
-==============================*/
+    const getBookingValue = (id) => {
 
-const topBtn = document.getElementById("topBtn");
+        const element =
+            document.getElementById(id);
 
-window.addEventListener("scroll", () => {
+        return element
+            ? element.value.trim()
+            : "";
+    };
 
-if(window.scrollY > 400){
 
-topBtn.style.display = "block";
+    const sendAmbulanceBooking = () => {
 
-}else{
+        const name =
+            getBookingValue("name");
 
-topBtn.style.display = "none";
+        const phone =
+            getBookingValue("phone");
 
-}
+        const pickup =
+            getBookingValue("pickup");
 
-});
+        const destination =
+            getBookingValue("destination");
 
-topBtn.addEventListener("click", () => {
+        const patientType =
+            getBookingValue("patientType");
 
-window.scrollTo({
+        const date =
+            getBookingValue("date");
 
-top:0,
 
-behavior:"smooth"
+        /* Validation */
 
-});
+        const requiredFields = [
+            {
+                id: "name",
+                message: "Please enter the patient/contact name."
+            },
+            {
+                id: "phone",
+                message: "Please enter a phone number."
+            },
+            {
+                id: "pickup",
+                message: "Please enter the pickup location."
+            },
+            {
+                id: "destination",
+                message: "Please enter the destination."
+            },
+            {
+                id: "patientType",
+                message: "Please select the patient condition."
+            },
+            {
+                id: "date",
+                message: "Please select the booking date."
+            }
+        ];
 
-});
 
-/*==============================
-  STICKY NAVBAR
-==============================*/
+        for (const field of requiredFields) {
 
-const navbar = document.querySelector(".navbar");
+            const element =
+                document.getElementById(field.id);
 
-window.addEventListener("scroll", () => {
+            if (!element || !element.value.trim()) {
 
-if(window.scrollY > 60){
+                alert(field.message);
 
-navbar.style.background = "#111";
-navbar.style.padding = "12px 8%";
+                if (element) {
+                    element.focus();
+                }
 
-}else{
+                return;
+            }
+        }
 
-navbar.style.background = "rgba(0,0,0,.45)";
-navbar.style.padding = "16px 8%";
 
-}
+        /* Basic phone validation */
 
-});
+        const phoneDigits =
+            phone.replace(/\D/g, "");
 
-/*==============================
-  REVEAL ANIMATION
-==============================*/
+        if (phoneDigits.length < 10) {
 
-const reveals = document.querySelectorAll(".ambulance-box");
+            alert(
+                "Please enter a valid phone number."
+            );
 
-function reveal(){
+            const phoneElement =
+                document.getElementById("phone");
 
-reveals.forEach(box=>{
+            phoneElement?.focus();
 
-const top = box.getBoundingClientRect().top;
+            return;
+        }
 
-const windowHeight = window.innerHeight;
 
-if(top < windowHeight - 120){
+        /* WhatsApp message */
 
-box.style.opacity = "1";
-box.style.transform = "translateY(0)";
+        const message =
+`*AXOMWHEELS AMBULANCE BOOKING*
 
-}
+Patient / Contact Name: ${name}
+Phone Number: ${phone}
+Pickup Location: ${pickup}
+Destination: ${destination}
+Patient Condition: ${patientType}
+Preferred Date: ${date}
 
-});
+Please confirm the ambulance booking.
 
-}
+Thank you for choosing Axomwheels.`;
 
-reveals.forEach(box=>{
 
-box.style.opacity="0";
-box.style.transform="translateY(50px)";
-box.style.transition=".8s";
+        const whatsappURL =
+            `https://wa.me/${BOOKING_WHATSAPP}?text=${encodeURIComponent(message)}`;
 
-});
 
-window.addEventListener("scroll", reveal);
+        /*
+         * Open WhatsApp in a new tab.
+         * Fallback to same window if popup is blocked.
+         */
 
-reveal();
+        const newWindow =
+            window.open(
+                whatsappURL,
+                "_blank",
+                "noopener,noreferrer"
+            );
 
-/*==============================
-  SMOOTH SCROLL
-==============================*/
+        if (!newWindow) {
+            window.location.href = whatsappURL;
+        }
+    };
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 
-anchor.addEventListener("click",function(e){
+    if (bookingBtn) {
 
-e.preventDefault();
+        bookingBtn.addEventListener(
+            "click",
+            sendAmbulanceBooking
+        );
+    }
 
-const target = document.querySelector(this.getAttribute("href"));
 
-if(target){
+    /* =====================================================
+       FAQ ACCORDION
+    ===================================================== */
 
-target.scrollIntoView({
+    const faqQuestions =
+        document.querySelectorAll(
+            ".faq-question"
+        );
 
-behavior:"smooth"
 
-});
+    faqQuestions.forEach(
+        (question) => {
 
-}
+            question.addEventListener(
+                "click",
+                () => {
 
-});
+                    const answer =
+                        question.nextElementSibling;
 
-});
+                    if (!answer) {
+                        return;
+                    }
 
-/*==============================
-  ACTIVE MENU
-==============================*/
 
-const sections = document.querySelectorAll("section");
-const navItems = document.querySelectorAll(".nav-links a");
+                    const isOpen =
+                        question.getAttribute(
+                            "aria-expanded"
+                        ) === "true";
 
-window.addEventListener("scroll",()=>{
 
-let current="";
+                    /*
+                     * Close all FAQ items
+                     */
 
-sections.forEach(section=>{
+                    faqQuestions.forEach(
+                        (otherQuestion) => {
 
-const top = section.offsetTop - 120;
+                            const otherAnswer =
+                                otherQuestion.nextElementSibling;
 
-const height = section.offsetHeight;
+                            otherQuestion.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
 
-if(pageYOffset >= top){
+                            if (otherAnswer) {
+                                otherAnswer.hidden = true;
+                            }
+                        }
+                    );
 
-current = section.getAttribute("id");
 
-}
+                    /*
+                     * Open clicked item
+                     * if it was previously closed
+                     */
 
-});
+                    if (!isOpen) {
 
-navItems.forEach(link=>{
+                        question.setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
 
-link.classList.remove("active");
+                        answer.hidden = false;
+                    }
 
-if(link.getAttribute("href")==="#"+current){
+                }
+            );
+        }
+    );
 
-link.classList.add("active");
 
-}
+    /* =====================================================
+       SCROLL UI
+       Navbar + Back To Top
+    ===================================================== */
 
-});
+    let scrollTicking = false;
 
-});
 
-/*==============================
-  IMAGE LAZY LOADING
-==============================*/
+    const updateScrollUI = () => {
 
-document.querySelectorAll("img").forEach(img=>{
+        const scrollY =
+            window.scrollY;
 
-img.loading="lazy";
 
-});
+        if (navbar) {
 
-/*==============================
-  PAGE LOAD EFFECT
-==============================*/
+            navbar.classList.toggle(
+                "scrolled",
+                scrollY > 60
+            );
+        }
 
-window.addEventListener("load",()=>{
 
-document.body.style.opacity="1";
+        if (topBtn) {
 
-});
+            topBtn.classList.toggle(
+                "show",
+                scrollY > 400
+            );
+        }
 
-document.body.style.opacity="0";
-document.body.style.transition=".5s";
 
-/*==========================================
-END OF AMBULANCE.JS
-==========================================*/
+        scrollTicking = false;
+    };
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (!scrollTicking) {
+
+                window.requestAnimationFrame(
+                    updateScrollUI
+                );
+
+                scrollTicking = true;
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+
+    /* Run once immediately */
+
+    updateScrollUI();
+
+
+    /* =====================================================
+       BACK TO TOP
+    ===================================================== */
+
+    if (topBtn) {
+
+        topBtn.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+    }
+
+
+    /* =====================================================
+       REVEAL ANIMATION
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".reveal"
+        );
+
+
+    if (
+        revealElements.length &&
+        "IntersectionObserver" in window
+    ) {
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries, observer) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                observer.unobserve(
+                                    entry.target
+                                );
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.12,
+                    rootMargin: "0px 0px -40px 0px"
+                }
+            );
+
+
+        revealElements.forEach(
+            (element) => {
+
+                revealObserver.observe(
+                    element
+                );
+            }
+        );
+
+    } else {
+
+        /*
+         * Fallback for older browsers
+         */
+
+        revealElements.forEach(
+            (element) => {
+
+                element.classList.add(
+                    "visible"
+                );
+            }
+        );
+    }
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const navItems =
+        document.querySelectorAll(
+            '.nav-links a[href^="#"]'
+        );
+
+
+    const sections =
+        Array.from(
+            document.querySelectorAll(
+                "main section[id]"
+            )
+        );
+
+
+    if (
+        navItems.length &&
+        sections.length &&
+        "IntersectionObserver" in window
+    ) {
+
+        const setActiveNav =
+            (sectionId) => {
+
+                navItems.forEach(
+                    (link) => {
+
+                        const isActive =
+                            link.getAttribute("href") ===
+                            `#${sectionId}`;
+
+                        link.classList.toggle(
+                            "active",
+                            isActive
+                        );
+
+                        if (isActive) {
+
+                            link.setAttribute(
+                                "aria-current",
+                                "page"
+                            );
+
+                        } else {
+
+                            link.removeAttribute(
+                                "aria-current"
+                            );
+                        }
+                    }
+                );
+            };
+
+
+        const sectionObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    /*
+                     * Select the currently visible section
+                     */
+
+                    const visibleSections =
+                        entries
+                            .filter(
+                                entry =>
+                                    entry.isIntersecting
+                            )
+                            .sort(
+                                (a, b) =>
+                                    b.intersectionRatio -
+                                    a.intersectionRatio
+                            );
+
+
+                    if (
+                        visibleSections.length
+                    ) {
+
+                        setActiveNav(
+                            visibleSections[0]
+                                .target
+                                .id
+                        );
+                    }
+
+                },
+                {
+                    root: null,
+
+                    /*
+                     * Creates a central viewport zone
+                     * for active navigation detection.
+                     */
+                    rootMargin:
+                        "-25% 0px -60% 0px",
+
+                    threshold: [0, 0.1, 0.25, 0.5]
+                }
+            );
+
+
+        sections.forEach(
+            (section) => {
+
+                sectionObserver.observe(
+                    section
+                );
+            }
+        );
+    }
+
+
+    /* =====================================================
+       EXTERNAL SAFETY
+    ===================================================== */
+
+    /*
+     * Ensure external target links opened in a new tab
+     * have safe rel attributes.
+     */
+
+    document
+        .querySelectorAll(
+            'a[target="_blank"]'
+        )
+        .forEach(
+            (link) => {
+
+                link.setAttribute(
+                    "rel",
+                    "noopener noreferrer"
+                );
+            }
+        );
+
+
+})();
